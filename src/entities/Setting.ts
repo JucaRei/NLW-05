@@ -20,11 +20,12 @@ class Setting {
   chat: boolean;
 
   @UpdateDateColumn()
-  upated_at: Date;
+  updated_at: Date;
 
   @CreateDateColumn()
   created_at: Date;
 
+  // verifica se tem id, senão cria um com UUID
   constructor() {
     if (!this.id) {
       this.id = uuid();
