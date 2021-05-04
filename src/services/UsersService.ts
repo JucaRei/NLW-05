@@ -10,17 +10,14 @@ class UsersService {
   }
 
   async create(email: string) {
-    // Verificar se usuário existe
     const userExists = await this.usersRepository.findOne({
       email,
     });
 
-    // Se existir, retonar user
     if (userExists) {
       return userExists;
     }
 
-    // Se não existir, salvar no DB
     const user = this.usersRepository.create({
       email,
     });

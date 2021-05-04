@@ -12,9 +12,7 @@ class User {
   @CreateDateColumn()
   created_at: Date;
 
-  // chamado sempre que instanciar um objeto user
   constructor() {
-    // verifica se ja veio preenchido
     if (!this.id) {
       this.id = uuid();
     }

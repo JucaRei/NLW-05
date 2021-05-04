@@ -4,7 +4,6 @@ class SettingsController {
   async create(request: Request, response: Response) {
     const { chat, username } = request.body;
 
-    // Settings service
     const settingsService = new SettingsService();
 
     try {

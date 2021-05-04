@@ -25,7 +25,6 @@ class Setting {
   @CreateDateColumn()
   created_at: Date;
 
-  // verifica se tem id, senão cria um com UUID
   constructor() {
     if (!this.id) {
       this.id = uuid();
