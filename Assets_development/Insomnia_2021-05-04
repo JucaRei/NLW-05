@@ -1,0 +1,183 @@
+_type: export
+__export_format: 4
+__export_date: 2021-05-04T16:55:39.469Z
+__export_source: insomnia.desktop.app:v2021.3.0
+resources:
+  - _id: req_710e137a994b4336b0e45a927f316a3f
+    parentId: fld_207b0bf6709d463a94591a1195cd9d8c
+    modified: 1620145169099
+    created: 1620145047022
+    url: " {{ _.baseURL }}/messages/491b90a9-bf85-4b77-a1b2-8fc339ff8ed1"
+    name: List Messages By User
+    description: Pegando a Lista de mensagens pelo id do Usuário
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1620145047022
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_207b0bf6709d463a94591a1195cd9d8c
+    parentId: wrk_9d2818085db44fe1a1ba3844d19968fa
+    modified: 1620143794563
+    created: 1620143794563
+    name: Messages
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1620143794563
+    _type: request_group
+  - _id: wrk_9d2818085db44fe1a1ba3844d19968fa
+    parentId: null
+    modified: 1620136124151
+    created: 1620135832441
+    name: NLW-05
+    description: Semana NLW
+    scope: collection
+    _type: workspace
+  - _id: req_9300dd76d26641eeaf587247a8dd6652
+    parentId: fld_207b0bf6709d463a94591a1195cd9d8c
+    modified: 1620146662821
+    created: 1620143810598
+    url: "{{ _.baseURL }}/messages"
+    name: Send Messages
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"user_id": "491b90a9-bf85-4b77-a1b2-8fc339ff8ed1",
+        	"text":  "Qual é o seu nome?",
+        	"admin_id": "c3482188-acf1-11eb-8529-0242ac130003"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_27518e4be93d455db027c53cd279d6ec
+    authentication: {}
+    metaSortKey: -1620143810599
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f4c01b3223a54bcc8cb1c075dcc25d6e
+    parentId: fld_1d3333a7da4242c9970486b8d0d46987
+    modified: 1620146715463
+    created: 1620136285955
+    url: "{{ _.baseURL }}/users"
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "email": "juca@teste.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_080112470a9a44fb91b6a5333a6f6ec0
+    authentication: {}
+    metaSortKey: -1620136337718
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_1d3333a7da4242c9970486b8d0d46987
+    parentId: wrk_9d2818085db44fe1a1ba3844d19968fa
+    modified: 1620136222789
+    created: 1620136222789
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1620136222789
+    _type: request_group
+  - _id: req_f99c0982246d4ab5968a7ad1f0932681
+    parentId: fld_9903ffcecf354d2eaaa9a9374010da6a
+    modified: 1620146728941
+    created: 1620136337668
+    url: "{{ _.baseURL }}/settings"
+    name: Settings
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "chat": true,
+            "username": "dani"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a871467c651d4d4ab068e97c7ffff395
+    authentication: {}
+    metaSortKey: -1620136153032
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9903ffcecf354d2eaaa9a9374010da6a
+    parentId: wrk_9d2818085db44fe1a1ba3844d19968fa
+    modified: 1620136217302
+    created: 1620136153082
+    name: Settings
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1620136153082
+    _type: request_group
+  - _id: env_9bb61c62d0a49e0d52d4ccba624d5745a533521e
+    parentId: wrk_9d2818085db44fe1a1ba3844d19968fa
+    modified: 1620136254671
+    created: 1620135832471
+    name: Base Environment
+    data:
+      baseURL: http://localhost:3333
+    dataPropertyOrder:
+      "&":
+        - baseURL
+    color: null
+    isPrivate: false
+    metaSortKey: 1620135832471
+    _type: environment
+  - _id: jar_9bb61c62d0a49e0d52d4ccba624d5745a533521e
+    parentId: wrk_9d2818085db44fe1a1ba3844d19968fa
+    modified: 1620135832472
+    created: 1620135832472
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_52ae9f25407d41c196c069e28b8a4477
+    parentId: wrk_9d2818085db44fe1a1ba3844d19968fa
+    modified: 1620135832442
+    created: 1620135832442
+    fileName: Insomnia
+    contents: ""
+    contentType: yaml
+    _type: api_spec
