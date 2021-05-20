@@ -5,6 +5,7 @@
     "id",
     "preconnect",
     "remaining",
+    "sobreescreve",
     "typeorm",
     "usuario"
   ],
