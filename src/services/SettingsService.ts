@@ -35,6 +35,16 @@ class SettingsService {
     });
 
     await this.settingsRepository.save(settings);
+
+    return settings;
+  }
+
+  async findByUserName(username: string) {
+    const settings = await this.settingsRepository.findOne({
+      username,
+    });
+
+    return settings;
   }
 }
 
