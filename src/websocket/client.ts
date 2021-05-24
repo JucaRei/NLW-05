@@ -63,5 +63,34 @@ io.on("connect", (socket) => {
     });
 
     // Salvar a conexão com o socket_id, user_id na tabela
+
+    // recuperar todas as mensagens
+    const allMessages = await messagesService.listByUser(user_id);
+
+    socket.emit("client_list_all_messages", allMessages);
+
+    // não precisa fazer reload na pagina
+    const allUsers = await connectionsService.findAllWithoutAdmin();
+    io.emit("admin_list_all_users", allUsers);
+  });
+
+  socket.on("client_send_to_admin", async (params) => {
+    const { text, socket_admin_id } = params;
+
+    const socket_id = socket.id;
+
+    const { user_id } = await connectionsService.findBySocketID(socket_id);
+
+    // salvar
+    const message = await messagesService.create({
+      text,
+      user_id,
+    });
+
+    // enviar pro administrador
+    io.to(socket_admin_id).emit("admin_receive_message", {
+      message,
+      socket_id,
+    });
   });
 });
