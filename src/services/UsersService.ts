@@ -24,6 +24,7 @@ class UsersService {
 
     await this.usersRepository.save(user);
 
+    // Se não existir, salvar no DB
     return user;
   }
 
