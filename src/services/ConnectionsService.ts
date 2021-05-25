@@ -5,16 +5,13 @@ import { Connection } from "../entities/Connection";
 interface IConnection {
   socket_id: string;
   user_id: string;
-  // opcional
   admin_id?: string;
   id?: string;
 }
 
 class ConnectionsService {
-  // criar o repositório (vem das entidades)
   private connectionsRepository: Repository<Connection>;
 
-  // acesso ao repositório
   constructor() {
     this.connectionsRepository = getCustomRepository(ConnectionsRepository);
   }
@@ -32,7 +29,6 @@ class ConnectionsService {
     return connection;
   }
 
-  // se tiver uma conexão apenas sobreescreve
   async findByUserId(user_id: string) {
     const connection = await this.connectionsRepository.findOne({
       user_id,
@@ -41,7 +37,6 @@ class ConnectionsService {
     return connection;
   }
 
-  // todas as conexões que não tem admin atrelado a ela
   async findAllWithoutAdmin() {
     const connections = await this.connectionsRepository.find({
       where: { admin_id: null },

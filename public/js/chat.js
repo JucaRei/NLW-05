@@ -16,7 +16,6 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
 
   const text = document.getElementById("txt_help").value;
 
-  // quando conectado emite os eventos
   socket.on("connect", () => {
     const params = {
       email,
@@ -44,10 +43,8 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
           email,
         });
 
-        // a cada mensagem adiciona, uma nova informação
         document.getElementById("messages").innerHTML += rendered;
       } else {
-        // administrador
         const rendered = Mustache.render(template_admin, {
           message_admin: message.text,
         });
@@ -58,7 +55,6 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
   });
 
   socket.on("admin_send_to_client", (message) => {
-    // se comunica com o administrador
     socket_admin_id = message.socket_id;
 
     const template_admin = document.getElementById("admin-template").innerHTML;
@@ -71,7 +67,6 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
   });
 });
 
-// Cliente enviar a mensagem
 document
   .querySelector("#send_message_button")
   .addEventListener("click", (event) => {
@@ -95,6 +90,5 @@ document
 
     document.getElementById("messages").innerHTML += rendered;
 
-    // limpar o campo de texto depois de escrever algo
     text.value = "";
   });
